@@ -1,0 +1,63 @@
+<div class="form-section">
+
+  <input
+    type="text"
+    name="policyName"
+    placeholder="Policy Name"
+    [(ngModel)]="policy.policyName">
+
+  <input
+    type="number"
+    name="premiumAmount"
+    placeholder="Premium Amount"
+    [(ngModel)]="policy.premiumAmount">
+
+  <input
+    type="number"
+    name="duration"
+    placeholder="Duration"
+    [(ngModel)]="policy.duration">
+
+  <button class="add-btn" (click)="addPolicy()">
+    {{ isEditMode ? 'Update Policy' : 'Add Policy' }}
+  </button>
+
+
+  <table border="1" width="100%">
+
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Policy Name</th>
+        <th>Premium</th>
+        <th>Duration</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let p of policies">
+
+        <td>{{p.id}}</td>
+        <td>{{p.policyName}}</td>
+        <td>{{p.premiumAmount}}</td>
+        <td>{{p.duration}}</td>
+
+       <td>
+
+  <button class="edit-btn" (click)="editPolicy(p)">
+    Edit
+  </button>
+
+  <button class="delete-btn" (click)="deletePolicy(p.id!)">
+    Delete
+  </button>
+
+</td>
+
+      </tr>
+    </tbody>
+
+  </table>
+
+</div>
